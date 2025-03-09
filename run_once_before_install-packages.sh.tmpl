@@ -1,0 +1,15 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+brew bundle --file=/dev/stdin <<EOF
+brew "fzf"
+brew "gh"
+brew "git"
+brew "helix"
+brew "htop"
+brew "jj"
+brew "parallel"
+brew "zoxide"
+cask "ghostty"
+EOF
+{{ end -}}
