@@ -9,6 +9,7 @@ key = "0EA784685083E75B"
 
 [ui]
 default-command = "log"
+diff-editor = ":builtin"
 
 [git]
 push-bookmark-prefix = "bhansconnect/push-"
