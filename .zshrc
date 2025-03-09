@@ -86,8 +86,8 @@ elif [ -x "$(command -v vim)" ]; then
 elif [ -x "$(command -v vi)" ]; then
   export EDITOR='vi'
 fi
-# Pager isn't working right currently with new zsh config
-# export PAGER="less -c --mouse --use-color"
+export PAGER="less"
+export LESS="-Rc"
 
 # Aliases
 alias ls='ls --color'
