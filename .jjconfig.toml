@@ -1,0 +1,18 @@
+[user]
+name = "Brendan Hansknecht"
+email = "brendan.hansknecht@gmail.com"
+
+[signing]
+behavior = "own"
+backend = "gpg"
+key = "0EA784685083E75B"
+
+[ui]
+default-command = "log"
+
+[git]
+push-bookmark-prefix = "bhansconnect/push-"
+
+[fix.tools.zig-format]
+command = ["zig", "fmt", "--stdin"]
+patterns = ["glob:'**/*.zig'"]
