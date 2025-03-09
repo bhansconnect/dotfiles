@@ -1,0 +1,25 @@
+{{/* boolean feature tags */}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- "" -}}
+
+{{/* For now, username is fine for distinguishing personal. */}}
+{{- if eq .chezmoi.username "bren077s" -}}
+{{-   $personal = true -}}
+{{- else if eq .chezmoi.os "linux" -}}{{/* All linux work machines are headless. */}}
+{{-   $headless = true -}}
+{{- end -}}
+
+
+{{- $email := "brendan.hansknecht@gmail.com" -}}
+{{- if not $personal -}}
+{{-   $email = "bhansconnect@modular.com" -}}
+{{- end -}}
+
+[data]
+    email = {{ $email | quote }}
+    headless = {{ $headless }}
+    personal = {{ $personal }}
+
+[github]
+    refreshPeriod = "12h"
