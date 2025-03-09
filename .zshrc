@@ -25,6 +25,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -51,6 +52,8 @@ setopt hist_find_no_dups
 # Completions styles
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Nix
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
@@ -68,6 +71,9 @@ if [ -x "$(command -v direnv)" ]; then
 fi
 if [ -x "$(command -v jj)" ]; then
   source <(jj util completion zsh)
+fi
+if [ -x "$(command -v fzf)" ]; then
+  eval "$(fzf --zsh)"
 fi
 
 # Default programs
