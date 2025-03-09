@@ -1,0 +1,80 @@
+[language-server.roc-ls]
+command = "roc_language_server"
+
+[[language]]
+name = "roc"
+scope = "source.roc"
+injection-regex = "roc"
+file-types = ["roc"]
+shebangs = ["roc"]
+roots = []
+comment-token = "#"
+language-servers = ["roc-ls"]
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+formatter = { command = "roc", args =[ "format", "--stdin", "--stdout"]}
+
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+[[grammar]]
+
+name = "roc"
+source = { git = "https://github.com/faldor20/tree-sitter-roc.git", rev = "6ea64b6434a45472bd87b0772fd84a017de0a557" }
+
+
+[[language]]
+name = "bqn"
+file-types = ["bqn"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+shebangs = ["bqn", "cbqn"]
+roots = []
+injection-regex = "bqn"
+scope = "scope.bqn"
+# language-servers = ["bqnlsp"]
+
+[[grammar]]
+name = "bqn"
+source.git = "https://github.com/shnarazk/tree-sitter-bqn"
+source.rev = "e9cfadd51fcf941332a627bebc11c3a716dd6fe7"
+
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+"'" = "'"
+'"' = '"'
+'⟨' = '⟩'
+
+[[language]]
+name = "uiua"
+file-types = ["uiua", "ua"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+language-servers = ["uiua"]
+auto-format = true
+injection-regex = "uiua"
+scope = "scope.uiua"
+roots = ["main.ua", "main.uiua"]
+
+[language-server.uiua]
+command = "uiua"
+args = ["lsp"]
+
+[[language]]
+name = "mojo"
+scope = "scope.mojo"
+file-types = ["mojo", "🔥"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["mojo"]
+auto-format = true
+injection-regex = "mojo"
+
+[language-server.mojo]
+command = "mojo-lsp-server"
+
