@@ -63,6 +63,7 @@ fi
  
 # Various autocomplete and program setup.
 autoload -Uz compinit && compinit
+zinit cdreplay -q
 if [ -x "$(command -v /opt/homebrew/bin/brew)" ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
