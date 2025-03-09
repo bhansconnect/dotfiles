@@ -76,6 +76,9 @@ fi
 if [ -x "$(command -v fzf)" ]; then
   eval "$(fzf --zsh)"
 fi
+if [ -x "$(command -v zoxide)" ]; then
+  eval "$(zoxide init --cmd cd zsh)"
+fi
 
 # Default programs
 if [ -x "$(command -v hx)" ]; then
