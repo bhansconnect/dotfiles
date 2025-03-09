@@ -42,3 +42,6 @@
 	sort = -committerdate
 [tag]
     sort = version:refname
+# Always use SSH
+[url "git@github.com:"]
+	insteadOf = https://github.com/
