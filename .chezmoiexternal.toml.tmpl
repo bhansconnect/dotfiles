@@ -1,0 +1,30 @@
+{{/* Manually download some packages on linux to avoid package management. */}}
+{{- if eq .chezmoi.os "linux" -}}
+[".vendor/helix"]
+    type = "archive"
+{{- if eq .chezmoi.arch "arm64" }}
+    url = "https://github.com/helix-editor/helix/releases/download/25.01.1/helix-25.01.1-aarch64-linux.tar.xz"
+{{- else if eq .chezmoi.arch "amd64" }}
+    url = "https://github.com/helix-editor/helix/releases/download/25.01.1/helix-25.01.1-x86_64-linux.tar.xz"
+{{- end }}
+    exact = true
+    stripComponents = 1
+
+{{- if not .headless -}}
+[".vendor/zig-0.13.0"]
+    type = "archive"
+{{- if eq .chezmoi.arch "arm64" }}
+    url = "https://ziglang.org/download/0.13.0/zig-linux-aarch64-0.13.0.tar.xz"
+{{- else if eq .chezmoi.arch "amd64" }}
+    url = "https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz"
+{{- end }}
+    exact = true
+    stripComponents = 1
+
+[".vendor/ghostty"]
+    type = "archive"
+    url = "https://github.com/ghostty-org/ghostty/archive/refs/tags/v1.1.2.tar.gz"
+    exact = true
+    stripComponents = 1
+{{- end -}}
+{{- end -}}
