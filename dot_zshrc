@@ -91,15 +91,7 @@ if [ -x "$(command -v zoxide)" ]; then
 fi
 
 # Default programs
-if [ -x "$(command -v hx)" ]; then
-  export EDITOR='hx'
-elif [ -x "$(command -v nvim)" ]; then
-  export EDITOR='nvim'
-elif [ -x "$(command -v vim)" ]; then
-  export EDITOR='vim'
-elif [ -x "$(command -v vi)" ]; then
-  export EDITOR='vi'
-fi
+export EDITOR='hx'
 export PAGER="less"
 export LESS="-Rc"
 
