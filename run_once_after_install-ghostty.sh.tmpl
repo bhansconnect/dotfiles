@@ -1,8 +1,0 @@
-{{- if and (eq .chezmoi.os "linux") (not .headless) -}}
-#!/bin/bash
-
-sudo apt install -y libgtk-4-dev libadwaita-1-dev git blueprint-compiler gcc-multilib
-
-cd ~/.vendor/ghostty
-../zig-0.13.0/zig build -Doptimize=ReleaseFast
-{{- end -}}
