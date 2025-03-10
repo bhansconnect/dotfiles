@@ -7,9 +7,9 @@ behavior = "own"
 backend = "gpg"
 {{- if and (.personal) (eq .chezmoi.os "darwin") }}
 key = "0EA784685083E75B"
-{{- else if and (.personal) (eq .chezmoi.os "linux") -}}
+{{- else if and (.personal) (eq .chezmoi.os "linux") }}
 key = "A199D0660F95F948"
-{{- else if not .personal -}}
+{{- else if not .personal }}
 key = "E8C946D3ED233EE0"
 {{- end }}
 

@@ -7,16 +7,16 @@
 {{- /* Then could automatically install signing keys on the machine */ -}}
 {{- if and (.personal) (eq .chezmoi.os "darwin") }}
 	signingkey = 0EA784685083E75B
-{{- else if and (.personal) (eq .chezmoi.os "linux") -}}
+{{- else if and (.personal) (eq .chezmoi.os "linux") }}
 	signingkey = A199D0660F95F948
-{{- else if not .personal -}}
+{{- else if not .personal }}
 	signingkey = E8C946D3ED233EE0
 {{- end }}
 
 [maintenance]
 {{- if .personal }}
 	repo = {{ .chezmoi.homeDir -}}/Projects/roc
-{{- else -}}
+{{- else }}
 	repo = {{ .chezmoi.homeDir -}}/modular
 	repo = {{ .chezmoi.homeDir -}}/Projects/modular
 {{- end }}
