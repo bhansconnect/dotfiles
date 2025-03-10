@@ -102,7 +102,27 @@ ssh_terminfo () {
   infocmp -x | ssh ${@} -- tic -x -
 }
 
+{{- if not .personal }}
+
+source $HOME/start-modular.sh
+
+alias mb="$MODULAR_PATH/bazelw"
+alias bb="mb build"
+# alias bt="mb test"
+alias br="mb run"
+
+alias ib="ibazel -bazel_path $MODULAR_PATH/bazelw"
+alias ibb="ib build"
+alias ibt="ib test"
+alias ibr="ib run"
+
+alias bpy="br SDK:python --"
+alias ibpy="ibr SDK:python --"
+
+alias bf="br //:format"
+alias bfpy="br //utils/bazel/lint:ruff-lint.fix; br //utils/bazel/lint:ruff-format.fix; br //utils/bazel/lint:mblack.fix"
+{{- end }}
+
 # Misc config
 export CMAKE_GENERATOR=Ninja
 export AFL_AUTORESUME=1
-
