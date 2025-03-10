@@ -19,4 +19,13 @@
 {{- end }}
     exact = true
     stripComponents = 1
+
+[".vendor/fzf"]
+    type = "archive"
+{{- if eq .chezmoi.arch "arm64" }}
+    url = "https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-linux_arm64.tar.gz"
+{{- else if eq .chezmoi.arch "amd64" }}
+    url = "https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-linux_amd64.tar.gz"
+{{- end }}
+    exact = true
 {{- end -}}

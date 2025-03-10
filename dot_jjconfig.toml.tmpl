@@ -2,15 +2,15 @@
 name = "Brendan Hansknecht"
 email = {{ .email | quote }}
 
-{{ if .personal -}}
 [signing]
 behavior = "own"
 backend = "gpg"
-{{ if eq .chezmoi.os "darwin" -}}
+{{- if and (.personal) (eq .chezmoi.os "darwin") }}
 key = "0EA784685083E75B"
-{{- else -}}
+{{- else if and (.personal) (eq .chezmoi.os "linux") -}}
 key = "A199D0660F95F948"
-{{- end }}
+{{- else if not .personal -}}
+key = "E8C946D3ED233EE0"
 {{- end }}
 
 [ui]
