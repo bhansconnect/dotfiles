@@ -103,9 +103,12 @@ fi
 export PAGER="less"
 export LESS="-Rc"
 
-# Aliases
+# Aliases and functions
 alias ls='ls --color'
 alias hx="hx --log /dev/null"
+ssh_terminfo () {
+  infocmp -x | ssh ${@} -- tic -x -
+}
 
 # Misc config
 export CMAKE_GENERATOR=Ninja
