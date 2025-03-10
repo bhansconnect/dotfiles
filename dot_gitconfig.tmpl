@@ -3,7 +3,13 @@
 	name = Brendan Hansknecht
 	email = {{ .email | quote }}
 {{- if .personal }}
+{{- /* This is a dumb workaround for now */ -}}
+{{- /* Really should store signing key in secret manager of some sort */ -}}
+{{- if eq .chezmoi.os "darwin" }}
 	signingkey = 0EA784685083E75B
+{{- else }}
+	signingkey = A199D0660F95F948
+{{- end -}}
 {{- end }}
 
 [maintenance]
