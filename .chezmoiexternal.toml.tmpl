@@ -20,7 +20,7 @@
     exact = true
     stripComponents = 1
 
-{{- if not .headless -}}
+{{ if not .headless -}}
 [".vendor/zig-0.13.0"]
     type = "archive"
 {{- if eq .chezmoi.arch "arm64" }}
