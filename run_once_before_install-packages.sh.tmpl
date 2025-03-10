@@ -12,6 +12,8 @@ brew "zoxide"
 cask "ghostty"
 EOF
 {{- else if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
 # ghostty, helix, and jj not in apt yet
 sudo apt install -y fzf gh git htop zoxide
 {{ end -}}
