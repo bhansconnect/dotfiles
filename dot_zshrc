@@ -64,10 +64,6 @@ if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
 fi
 # End Nix
  
-# Aliases
-alias ls='ls --color'
-alias hx="hx --log /dev/null"
-
 # Path updates
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -79,12 +75,13 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 if [ -x "$(command -v /opt/homebrew/bin/brew)" ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
 fi
 if [ -x "$(command -v direnv)" ]; then
   eval "$(direnv hook zsh)"
 fi
 if [ -x "$(command -v jj)" ]; then
-  source <(jj util completion zsh)
+  source <(COMPLETE=zsh jj)
 fi
 if [ -x "$(command -v fzf)" ]; then
   eval "$(fzf --zsh)"
@@ -106,7 +103,9 @@ fi
 export PAGER="less"
 export LESS="-Rc"
 
-# export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
+# Aliases
+alias ls='ls --color'
+alias hx="hx --log /dev/null"
 
 # Misc config
 export CMAKE_GENERATOR=Ninja
