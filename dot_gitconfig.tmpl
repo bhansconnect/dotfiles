@@ -13,7 +13,12 @@
 {{- end }}
 
 [maintenance]
-	repo = /Users/bren077s/Projects/roc
+{{- if .personal }}
+	repo = {{ .chezmoi.homeDir -}}/Projects/roc
+{{- else -}}
+	repo = {{ .chezmoi.homeDir -}}/modular
+	repo = {{ .chezmoi.homeDir -}}/Projects/modular
+{{- end }}
 [init]
 	defaultBranch = main
 [commit]
