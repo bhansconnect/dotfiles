@@ -103,9 +103,15 @@ ssh_terminfo () {
 }
 
 {{- if not .personal }}
-FUNCNEST=700
-
-source $HOME/start-modular.sh
+sm () {
+  if [ -d "$HOME/Projects/modular/" ]; then
+    source $HOME/Projects/modular/utils/start-modular.sh
+  elif [ -d "$HOME/modular/" ]; then
+    source $HOME/modular/utils/start-modular.sh
+  else
+    echo "could not find modular repo"
+  fi
+}
 
 alias mb="$MODULAR_PATH/bazelw"
 alias bb="mb build"
