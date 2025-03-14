@@ -1,5 +1,5 @@
 # theme = "solarized_dark"
-theme = "base16_terminal"
+theme = "base16_transparent"
 
 [editor]
 mouse = false
