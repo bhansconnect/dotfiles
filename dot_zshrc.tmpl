@@ -56,8 +56,13 @@ autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey "\e[A" up-line-or-beginning-search
-bindkey "\e[B" down-line-or-beginning-search
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  bindkey "\e[A" up-line-or-beginning-search
+  bindkey "\e[B" down-line-or-beginning-search
+else
+  bindkey "$key[Up]" up-line-or-beginning-search
+  bindkey "$key[Down]" down-line-or-beginning-search
+fi
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
 
