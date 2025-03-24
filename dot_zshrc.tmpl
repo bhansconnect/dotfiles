@@ -27,6 +27,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/Projects/roc/target/release:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
+export LIBRARY_PATH="$LIBRARY_PATH:$HOME/.local/lib"
+
 # compinit and autocomplete setup
 autoload compinit -Uz && compinit
 if [ -x "$(command -v /opt/homebrew/bin/brew)" ]; then
