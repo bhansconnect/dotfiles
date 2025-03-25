@@ -26,6 +26,9 @@ name = "roc"
 source = { git = "https://github.com/faldor20/tree-sitter-roc.git", rev = "0b1afe88161cbd81f5ddea1bb4fa786314ed49a7" }
 
 
+[language-server.bqnlsp]
+command = "bqnlsp"
+
 [[language]]
 name = "bqn"
 language-id = "bqn"
@@ -34,6 +37,7 @@ injection-regex = "bqn"
 scope = "source.bqn"
 roots = []
 comment-token = "#"
+language-servers = ["bqnlsp"]
 indent = { tab-width = 2, unit = "  " }
 shebangs = ["BQN", "CBQN", "bqn", "cbqn"]
 
