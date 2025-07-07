@@ -17,8 +17,8 @@ key = "E8C946D3ED233EE0"
 default-command = "log"
 diff-editor = ":builtin"
 
-[git]
-push-bookmark-prefix = "bhansconnect/push-"
+[templates]
+git_push_bookmark = '"bhansconnect/push-" ++ change_id.short()'
 
 [fix.tools.zig-format]
 command = ["zig", "fmt", "--stdin"]

@@ -142,3 +142,7 @@ alias bfpy="br //utils/bazel/lint:ruff-lint.fix; br //utils/bazel/lint:ruff-form
 # Misc config
 export CMAKE_GENERATOR=Ninja
 export AFL_AUTORESUME=1
+
+{{- if .personal }}
+alias jekyll=/opt/homebrew/lib/ruby/gems/3.4.0/bin/jekyll
+{{- end}}
