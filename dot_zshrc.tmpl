@@ -30,6 +30,15 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export LIBRARY_PATH="$LIBRARY_PATH:$HOME/.local/lib"
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$HOME/.local/lib"
 
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+  . $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
+# End Nix
+
 # compinit and autocomplete setup
 autoload compinit -Uz && compinit
 if [ -x "$(command -v /opt/homebrew/bin/brew)" ]; then
@@ -90,15 +99,6 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:*' fzf-bindings 'ctrl-a:toggle-all'
 
-# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
-  . $HOME/.nix-profile/etc/profile.d/nix.sh
-fi
-# End Nix
- 
 # Default programs
 export EDITOR='hx'
 export PAGER="less"
