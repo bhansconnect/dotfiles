@@ -5,3 +5,4 @@ theme = duskfox
 # theme = Purple Rain
 
 font-family = "Hack Nerd Font Mono"
+keybind = shift+enter=text:\n
